@@ -1,0 +1,17 @@
+%h3 Add Post Weight
+= simple_form_for @measurement do |m| 
+  %table.table-bordered.table-hover
+    %thead
+      %tr.table
+    %thead
+      %tr.table
+    - [1, 2, 3].each do |n|      
+      %tr
+        %td.table Weight #{n}
+        %td        
+          %td= m.input_field :value, type: "float"
+  = m.submit "Add Post Weight", class: "btn btn-info"
+= link_to "Cancel", new_measurement_path
+
+
+

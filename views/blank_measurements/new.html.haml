@@ -1,0 +1,19 @@
+= simple_form_for @blank_measurement do |mt| 
+  %table.table-hover
+    %thead
+      %tr.table
+        %th
+        %th 1 min 
+        %th 2 min
+        %th 3 min 
+    - [1, 2, 3].each do |n|      
+      %tr
+        %td.table-active Weight #{n}
+        - [:a, :b, :c].each do |abc|
+          %td
+            %input{:name => "weight#{n}#{abc}", type: "float"}/
+  = mt.submit "Create Blank", class: "btn btn-info"
+= link_to "Cancel", new_measurement_path
+
+          
+

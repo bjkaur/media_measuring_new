@@ -1,0 +1,20 @@
+
+= form_for @stock_batch do |s|
+  %form_heading Add Stocks #{@media_type.name}
+  = s.hidden_field :media_type_id
+  %br/  
+  = s.label(:item_count, "Quantity")  
+  = s.number_field :item_count, min: 1, max: 500
+  %br/  
+  = s.label(:lot_number, "Lot Number")  
+  = s.text_field :lot_number, required: true
+  %br/  
+  = s.submit "Add Stock", class: "btn btn-info"
+  = link_to "Back", stock_batches_path
+  
+  - if @media_type.stock_batches.exists? 
+    %h5 #{@media_type.name} Current Stock: #{@media_type.stock_batches.count}  
+  - else
+    %h5 No Stocks assigned to #{@media_type.name} 
+
+

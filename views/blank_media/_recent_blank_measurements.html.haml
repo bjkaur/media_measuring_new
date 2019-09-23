@@ -1,0 +1,15 @@
+%h1 Blank Measurement
+  %table.table
+    %thead
+      %tr.table-info 
+        %th
+        %th Time 
+        %th Weight 1
+        %th Weight 2
+        %th Weight 3
+      %tbody
+        - blank_measurements.each do |bm|
+          %tr
+            %td= bm.created_at.to_s 
+            %td= [:a, :b, :c]
+

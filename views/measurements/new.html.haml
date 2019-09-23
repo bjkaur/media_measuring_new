@@ -1,0 +1,66 @@
+
+= form_for @measurement do |m| 
+
+  %form_heading Add Measurement 
+  %br/    
+  = m.hidden_field :medium_id
+  = m.hidden_field :equipment_id
+  %br/    
+
+  = m.label(:name, "Medium")
+  #{@medium.media_type.name} 
+  %br/  
+
+  = m.label(:medium_id, "Medium Barcode") 
+  #{@medium.id} 
+  (#{@medium.barcode_hint})
+  %br/    
+
+  /= m.label(:stock_batch_id, "Stock ID")
+  /#{@medium.media_type.stock_batches.ids.to_sentence }
+  %br/  
+
+  = m.label(:equipment_id, "Equipment ID")
+  = m.text_field :equipment_id, required: true
+  %br/
+  
+  = m.label(@pre_weight.name) 
+  %br/    
+  = m.label(:value, "Value A")
+  = m.text_field :value
+  %br/    
+
+  = m.label(:value, "Value B")
+  = m.text_field :value
+  %br/    
+
+  = m.label(:value, "Value C")
+  = m.text_field :value
+  %br/    
+
+  = m.label(@post_weight.name) 
+  %br/    
+  = m.label(:value, "Value A")
+  = m.text_field :value
+  %br/    
+
+  = m.label(:value, "Value B")
+  = m.text_field :value
+  %br/    
+
+  = m.label(:value, "Value C")
+  = m.text_field :value
+  %br/    
+
+  = m.label(@comment.name) 
+  %br/    
+  = m.text_field :value
+  %br/   
+
+  = m.label(@darkness.name) 
+  %br/    
+  = m.text_field :value
+
+  %br/
+  = m.submit "Save Measurement", controller: :measurements, action: :create, id: @medium.id, class: "btn btn-info"
+  = link_to 'Cancel'#, controller: 'media', action: 'delete', id: @medium.id

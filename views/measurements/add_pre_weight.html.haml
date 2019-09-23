@@ -1,0 +1,23 @@
+%h2 Add Measurement
+= simple_form_for @measurements do |m| 
+
+  = m.hidden_field :medium_id
+  = m.hidden_field :measurement_name_id
+  
+  %table.table-hover
+    %thead
+      %tr.table
+        %th
+        %th 1 min 
+        %th 2 min
+        %th 3 min
+    - [1, 2, 3].each do |n|      
+      %tr
+        %td.table-active Weight #{n}
+        - [:a, :b, :c].each do |abc|
+          %td
+            %td= m.input_field :value, type: "float"
+  = m.submit "Add Pre Weight", class: "btn btn-info"
+= link_to "Cancel", new_measurement_path
+
+

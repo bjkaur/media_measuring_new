@@ -1,0 +1,26 @@
+= form_for [@stock_batch, @medium] do |m|   
+  %form_heading Add Media
+  %br/
+
+  = m.hidden_field :media_type_id
+  = m.hidden_field :stock_batch_id
+
+  = m.label(:media_type_id, "Media Type")   
+  #{@media_type.name}
+  %br/
+
+  = m.label(:stock_batch_id, "Stock ID")
+  #{@stock_batch.id}
+  %br/
+
+  = m.label(:medium_qty, "Number of media")  
+  = m.number_field :medium_qty, 
+                class: "medium_qty", type: :number, min: 1,
+                required: true
+  %br/
+
+  = m.submit "Create Labels", class: "btn btn-info"
+  %br/
+  
+  = link_to "Back", measurements_path
+

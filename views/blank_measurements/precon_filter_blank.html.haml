@@ -1,0 +1,21 @@
+%h3 Pre-conditioned Blank Measurement 
+= simple_form_for @media_type.blank_medium.blank_measurement do |f| 
+  %table.table-hover.table-bordered 
+    %thead
+      %tr.table
+        %th
+        %th 1 min 
+        %th 2 min
+        %th 3 min
+    - [1, 2, 3].each do |n|
+      %tr
+        %td Weight #{n}
+        - [:a, :b, :c].each do |abc|
+          %td 
+            - field_name = "weight#{n}#{abc}"
+            = f.input_field field_name, type: "number",
+              id: field_name
+  = f.submit "Create Blank", class: "btn btn-info"
+= link_to "Cancel", new_measurement_path
+
+          

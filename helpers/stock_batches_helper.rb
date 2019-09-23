@@ -1,0 +1,2 @@
+module StockBatchesHelper
+end

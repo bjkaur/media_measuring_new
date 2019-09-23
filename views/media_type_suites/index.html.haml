@@ -1,0 +1,15 @@
+%h2 Media Suites
+
+%table.table.table-bordered.table-striped.table-fixed-header
+  %thead.header
+    %tr
+      %th Suites
+      %th Date Last Added  
+      %th Stock Count     
+  %tbody 
+    - @media_type_suites.each do |mts|
+      %tr
+        %td= link_to mts.name, :controller=> 'media_type_suites', action: 'show', :id => mts.id
+        %td= link_to mts.updated_at, :controller => 'media_type_suites', action: 'show', :id => mts.id
+        
+        

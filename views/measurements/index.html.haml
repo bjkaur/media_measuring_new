@@ -1,0 +1,26 @@
+//Display dropdown for media suite
+//Display dropdown for media_type 
+//show appropriate 
+
+= render template: 'media_types/search' 
+
+%h2 Measurements 
+
+%table.table-hover.table-bordered
+  %thead
+    %tr.table
+      /%th Total Medium
+      %th Type
+      %th Suite
+      %th{colspan: 3} Labels and Measurements  
+  %tbody
+    - @media_types.each do |mt|
+      %tr.table
+        /%td= mt.media.count
+        %td= link_to mt.name, controller: 'media', action: 'show', id: mt.id
+        %td= mt.measurement_suite.name
+        %td= link_to "Create Labels", controller: :media, action: :new, id: mt.id
+        %td= link_to "View Media", controller: :media, action: :show, id: mt.id
+
+
+

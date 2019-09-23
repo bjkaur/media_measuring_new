@@ -1,0 +1,16 @@
+
+= form_for @measurement do |m| 
+  = m.hidden_field :medium_id
+  = m.hidden_field :measurement_name_id
+  = m.hidden_field :equipment_id
+  %h3 Add Blank for #{@medium.media_type.name}
+  = s.label(@medium.id, "Medium ID") 
+  = s.label(@medium.media_type.name, "Medium") 
+  Measurement Name:
+  Equipment ID: #{m.text_field :equipment_id} 
+  Blank A: #{m.text_field :value}
+  Blank B: #{m.text_field :value}
+  Blank C: #{m.text_field :value} 
+  = m.submit "Save Blank", controller: 'measurements', action: 'create', id: @medium.id, class: "btn btn-info"
+= link_to "Cancel", new_measurement_path(id: @medium.id)
+

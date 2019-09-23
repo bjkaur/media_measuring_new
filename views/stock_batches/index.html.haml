@@ -1,0 +1,28 @@
+// Index page renders media stocks
+%h2 Stock Control
+
+%table.table-hover.table-bordered
+  %thead.header
+    %tr.table
+      %th Media
+      %th Suite
+      %th Stock Count
+      %th Date Last Added
+      /%th Username
+      %th{colspan: 2} Manage Stock
+  %tbody
+    - @media_types.each do |mt|
+      %tr.table
+        %td= link_to mt.name
+        %td= mt.measurement_suite.name
+        %td= mt.stock_batches.count
+        %td= mt.created_at  
+        /%td
+        %td= link_to "Add Stock", action: :new, id: mt.id
+        %td= link_to "Edit Stock", action: :edit, id: mt.id
+        /= stock.username      
+
+/= render template: 'media_type_suites/index' 
+/= render template: 'media_types/index'
+
+//Edit button 

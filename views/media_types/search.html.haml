@@ -1,0 +1,7 @@
+= form_for @media_type do |f|
+ %form_heading Find Media 
+ %br
+ = f.collection_select :measurement_suite_id, @measurement_suites, :id, :name , {prompt: :true, multiple: :true }
+ %br
+ = search_field_tag :search, params[:search]
+ = f.submit "Filter", class: "btn btn-info"

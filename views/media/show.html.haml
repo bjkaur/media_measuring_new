@@ -1,0 +1,39 @@
+
+%h2 Media Lables
+%div#showmedia
+  %table.table-hover.table-bordered
+    %thead.header
+      %tr.table
+        %th #
+        %th Medium         
+        %th Medium Barcode 
+        %th Expiration
+        %th Check to Print
+    %tbody    
+      - @media.each.with_index do |medium, index|
+        %tr.table.pretty
+          %td= index + 1
+          %td= medium.media_type.name
+          %td
+            = medium.id
+            %br
+            = "(#{medium.barcode_hint})"
+          %td= medium.created_at.next_year.strftime "%d %b %y"
+          %td
+            %checkbox=# "medium_ids[]", medium.id, true
+.row
+  .col-sm-12
+    .text-center
+      = label(:print_qty, "Number of labels")
+      = number_field :print_qty, 
+            class: "print_qty", type: :number, min: 1,
+            required: true
+      %br
+      - byebug
+      = link_to "Print Labels", print_media_path(media_ids: @media.pluck(:id))
+      = submit_tag "Print Labels", controller: :media, action: :print, class: "btn btn-info"
+      = submit_tag "Create Measurements", controller: :measurements, action: :new, class: "btn btn-info", disabled: true
+      
+
+
+

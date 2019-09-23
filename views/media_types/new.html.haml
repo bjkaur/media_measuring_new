@@ -1,0 +1,13 @@
+%h2 Add New Media
+
+= form_for @media_type do |f|
+  = f.hidden_field :measurement_suite_id
+  
+  = f.label(:measurement_suite_id, "Measurement Suite") 
+  = f.collection_select :measurement_suite_id, @measurement_suites, :id, :name, {prompt: :true, multiple: :true }
+  = f.label(:name, "Media Name")
+  = f.text_field :name
+  /Quantity: 
+  = f.submit "Add", class: "btn btn-info"
+  = link_to 'Back', media_types_path
+

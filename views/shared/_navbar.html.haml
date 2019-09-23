@@ -1,0 +1,29 @@
+
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  %nav.navbar.navbar-dark.bg-dark
+    %nav.navbar.navbar-dark{style: "background-color: "}
+      %a.navbar-brand{href: "#"}
+        %img{alt: "", height: "30", src: "/code/media_measuring_new/app/assets/images/concept_badge.png", width: "30"}
+      %a.navbar-brand{href: "#"} Media 
+      %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", type: "button"}
+        %span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        %ul.navbar-nav.mr-auto
+          %li.nav-item.active
+            %a.nav-link{href: "/home"}
+              Home
+              %span.sr-only (current)
+          %li.nav-item{class: "#{'active' if params[:stock_batches] == 'stock_batches'}"}
+            %a.nav-link{href: "/stock_batches"} Stocks
+          %li.nav-item{class: "#{'active' if params[:media_types] == 'media_types'}"}
+            %a.nav-link{href: "/measurements"} Measurements
+          %li.nav-item
+            %a.nav-link{href: "/media_types"} Media Types   
+          %li.nav-item
+            %a.nav-link{href: "#"} Orders
+          %li.nav-item
+            %a.nav-link{href: "#"} Reports
+        %navsearch.form-inline.my-2.my-lg-0
+          %input.form-control.mr-sm-2{"aria-label" => "Search", placeholder: "Job Number", type: "search"}/
+          %button.btn.btn-outline-success.my-2.my-sm-0{type: "submit"} Search
+          

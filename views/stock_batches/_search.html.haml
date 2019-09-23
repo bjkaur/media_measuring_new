@@ -1,0 +1,5 @@
+
+= form_tag(stock_search_path, method: :get, class: "navbar-form navbar-right", role: "search" do
+  %p
+    = search_field_tag :search, params[:search], placeholder: "Search Stocks", class: "form-control"
+    = submit_tag "Search", name: nil, class: "btn btn-info glyphicon glyphicon-search"
